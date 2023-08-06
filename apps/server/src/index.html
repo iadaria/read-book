@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta
+      name="generator"
+      content="Docutils 0.17.1: http://docutils.sourceforge.net/"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Units and Globally Available Variables — Solidity 0.8.21 documentation
+    </title>
+    <link
+      rel="shortcut icon"
+      href="https://docs.soliditylang.org/en/v0.8.21/_static/favicon.ico"
+    />
+    <!--[if lt IE 9]>
+      <script src="_static/js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script
+      data-url_root="./"
+      id="documentation_options"
+      src="Units%20and%20Globally%20Available%20Variables%20%E2%80%94%20Solidity%200.8.21%20documentation_files/documentation_options.js"
+    ></script>
+    <script src="Units%20and%20Globally%20Available%20Variables%20%E2%80%94%20Solidity%200.8.21%20documentation_files/jquery.js"></script>
+    <script src="Units%20and%20Globally%20Available%20Variables%20%E2%80%94%20Solidity%200.8.21%20documentation_files/underscore.js"></script>
+    <script src="Units%20and%20Globally%20Available%20Variables%20%E2%80%94%20Solidity%200.8.21%20documentation_files/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="Units%20and%20Globally%20Available%20Variables%20%E2%80%94%20Solidity%200.8.21%20documentation_files/doctools.js"></script>
+    <script src="Units%20and%20Globally%20Available%20Variables%20%E2%80%94%20Solidity%200.8.21%20documentation_files/sphinx_highlight.js"></script>
+    <script
+      async="async"
+      src="Units%20and%20Globally%20Available%20Variables%20%E2%80%94%20Solidity%200.8.21%20documentation_files/readthedocs-doc-embed.js"
+    ></script>
+    <script src="Units%20and%20Globally%20Available%20Variables%20%E2%80%94%20Solidity%200.8.21%20documentation_files/constants.js"></script>
+    <script src="Units%20and%20Globally%20Available%20Variables%20%E2%80%94%20Solidity%200.8.21%20documentation_files/initialize.js"></script>
+    <script src="Units%20and%20Globally%20Available%20Variables%20%E2%80%94%20Solidity%200.8.21%20documentation_files/toggle.js"></script>
+    <script src="Units%20and%20Globally%20Available%20Variables%20%E2%80%94%20Solidity%200.8.21%20documentation_files/theme.js"></script>
+    <link
+      rel="index"
+      title="Index"
+      href="https://docs.soliditylang.org/en/v0.8.21/genindex.html"
+    />
+    <link
+      rel="search"
+      title="Search"
+      href="https://docs.soliditylang.org/en/v0.8.21/search.html"
+    />
+    <link
+      rel="next"
+      title="Expressions and Control Structures"
+      href="https://docs.soliditylang.org/en/v0.8.21/control-structures.html"
+    />
+    <link
+      rel="prev"
+      title="Types"
+      href="https://docs.soliditylang.org/en/v0.8.21/types.html"
+    />
+    <!-- RTD Extra Head -->
+    <script type="application/json" id="READTHEDOCS_DATA">
+      {
+        "ad_free": true,
+        "api_host": "https://readthedocs.org",
+        "builder": "sphinx",
+        "canonical_url": null,
+        "docroot": "/docs/",
+        "features": { "docsearch_disabled": false },
+        "global_analytics_code": null,
+        "language": "en",
+        "page": "units-and-global-variables",
+        "programming_language": "cpp",
+        "project": "solidity",
+        "proxied_api_host": "/_",
+        "source_suffix": ".rst",
+        "subprojects": {},
+        "theme": "sphinx_rtd_theme",
+        "user_analytics_code": "",
+        "version": "v0.8.21"
+      }
+    </script>
+    <!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+    <script type="text/javascript">
+      READTHEDOCS_DATA = JSON.parse(
+        document.getElementById("READTHEDOCS_DATA").innerHTML
+      );
+    </script>
+    <script
+      type="text/javascript"
+      src="Units%20and%20Globally%20Available%20Variables%20%E2%80%94%20Solidity%200.8.21%20documentation_files/readthedocs-analytics.js"
+      async="async"
+    ></script>
+    <!-- end RTD <extrahead> -->
+    <link
+      rel="preload"
+      as="font"
+      href="https://solidity-docs-dev.readthedocs.io/en/latest/_static/fonts/overpass-regular.otf"
+      crossorigin=""
+    />
+    <link
+      rel="preload"
+      as="font"
+      href="https://solidity-docs-dev.readthedocs.io/en/latest/_static/fonts/overpass-bold.otf"
+      crossorigin=""
+    />
+    <link
+      rel="preload"
+      as="font"
+      href="https://solidity-docs-dev.readthedocs.io/en/latest/_static/fonts/overpass-mono-regular.otf"
+      crossorigin=""
+    />
+    <link
+      rel="preload"
+      as="font"
+      href="https://solidity-docs-dev.readthedocs.io/en/latest/_static/fonts/overpass-mono-bold.otf"
+      crossorigin=""
+    />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="stylesheet.css" rel="stylesheet" type="text/css" />
+    <link href="page_styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body class="wy-body-for-nav">
+    <div class="unified-wrapper">
+      <div class="unified-wrapper">
+        <div class="unified-wrapper" id="content">
+          <div class="unified-wrapper">
+            <div
+              role="main"
+              class="unified-wrapper"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div itemprop="articleBody" class="unified-wrapper">
+                <section id="units-and-globally-available-variables">
+                  <section id="ether-units">
+                    <h2 class="calibre7" id="calibre_pb_1">
+                      Ether Units<a
+                        class="headerlink"
+                        href="bc1d9e8748dc48e0fdd682cb234c5024_split_001.html#ether-units"
+                        title="Permalink to this heading"
+                        ></a
+                      >
+                    </h2>
+                    <p class="caption">
+                      A literal number can take a suffix of
+                      <code class="docutils"><span>wei</span></code
+                      >, <code class="docutils"><span>gwei</span></code> or
+                      <code class="docutils"><span>ether</span></code> to
+                      specify a subdenomination of Ether, where Ether numbers
+                      without a postfix are assumed to be Wei.
+                    </p>
+                    <p class="caption">
+                      <a
+                        href="https://remix.ethereum.org/?#language=solidity&amp;version=0.8.21&amp;code=YXNzZXJ0KDEgd2VpID09IDEpOwphc3NlcnQoMSBnd2VpID09IDFlOSk7CmFzc2VydCgxIGV0aGVyID09IDFlMTgpOw=="
+                        target="_blank"
+                        >open in Remix</a
+                      >
+                    </p>
+                    <div class="unified-wrapper">
+                      <div class="unified-wrapper">
+                        <pre
+                          class="calibre8"
+                        ><span></span>assert<span>(</span><span>1</span><span> </span>wei<span> </span><span>==</span><span> </span><span>1</span><span>);</span>
+assert<span>(</span><span>1</span><span> </span>gwei<span> </span><span>==</span><span> </span><span>1</span>e9<span>);</span>
+assert<span>(</span><span>1</span><span> </span>ether<span> </span><span>==</span><span> </span><span>1</span>e18<span>);</span>
+</pre>
+                      </div>
+                    </div>
+                    <p class="caption">
+                      The only effect of the subdenomination suffix is a
+                      multiplication by a power of ten.
+                    </p>
+                    <div class="unified-wrapper">
+                      <p class="caption">Note</p>
+                      <p class="caption">
+                        The denominations
+                        <code class="docutils"><span>finney</span></code> and
+                        <code class="docutils"><span>szabo</span></code> have
+                        been removed in version 0.7.0.
+                      </p>
+                    </div>
+                  </section>
+                  <section id="time-units">
+                    <span id="index-2"></span>
+                  </section>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

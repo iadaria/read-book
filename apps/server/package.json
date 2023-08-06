@@ -1,0 +1,29 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "tsc && pwd && ls src/ && cp src/*.epub dist && node dist/index.js",
+    "start-2": "tsc && pwd && cp /src/*.epub /dist && node dist/index.js",
+    "eslint": "npx eslint . --ext .ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bluebird": "^3.5.38",
+    "@types/xml2js": "^0.4.11",
+    "@typescript-eslint/eslint-plugin": "^6.2.1",
+    "@typescript-eslint/parser": "^6.2.1",
+    "eslint": "^8.46.0",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "epub2": "^3.0.1",
+    "htmlparser2": "^9.0.0"
+  }
+}
