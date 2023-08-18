@@ -1,10 +1,11 @@
-import { getChapter } from "./actions/chapter";
-import { Request, Response } from "express";
+//import chalk from "chalk";
+import "module-alias/register";
+import express from "express";
+import cors from "cors";
+import bookRoutes from "@/routes/bookRoutes";
 
-const express = require("express");
 const app = express();
 
-const cors = require("cors");
 const corsOptions = {
   origin: "*",
   credentials: true,
@@ -12,15 +13,16 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.get("/chapter", async function (req: Request, res: Response) {
-  const chapter = await getChapter();
-  console.log(chapter);
-  res.json({ chapter });
-});
+app.use(express.json());
 
-app.get("/tr", async function (req: Request, res: Response) {
-  //console.log(chapter);
-  res.json({ translate: "hi there" });
-});
+app.use("/api/v1/book", bookRoutes);
 
-app.listen(3001);
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+  // console.log(
+  //   `${chalk.green.bold("✔")} 👍 Server running in ${chalk.yellow.bold(
+  //     process.env.NODE_ENV
+  //   )} mode on port ${chalk.blue.bold(PORT)}`
+  // );
+});

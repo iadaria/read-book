@@ -3,6 +3,7 @@
 
 *.epub
 .data
+.data/*
 
 todo.md
 
