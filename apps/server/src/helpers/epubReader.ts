@@ -42,7 +42,7 @@ export async function readChapter(): Promise<Paragraph[]> {
     const chapter = await epub.getChapterAsync(ids[0]);
 
     let currentTagName = "";
-    const tags = ["p", "h1", "h2", "h3", "code", "span", "li"];
+    const tags = ["p", "h1", "h2", "h3", "code", "span", "li", "a", "strong"];
     console.log("\n");
 
     const parser = new parser2.Parser({
@@ -57,12 +57,15 @@ export async function readChapter(): Promise<Paragraph[]> {
             tagName: currentTagName as TagName,
             includes: [],
           }); */
-          if (["span", "code"].includes(currentTagName)) {
+          if (
+            ["span", "code", "a", "strong"].includes(currentTagName) &&
+            paragraphs.length
+          ) {
             const prevTag = paragraphs.pop();
             const include = { content, tagName } as Paragraph;
             prevTag.includes.push(include);
             paragraphs.push(prevTag);
-          } else {
+          } else if (!["a"].includes(currentTagName)) {
             paragraphs.push({
               content: content.trimStart(),
               tagName,
@@ -82,7 +85,9 @@ export async function readChapter(): Promise<Paragraph[]> {
 
     parser.write(chapter);
     parser.end();
-    //res.json({ chapter: paragraphs });
+
+    const found = paragraphs.find((p) => p.content.includes("Take care"));
+    console.log(found);
   } catch (error) {
     console.log("error=>", error);
   } finally {
