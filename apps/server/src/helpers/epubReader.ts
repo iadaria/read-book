@@ -49,17 +49,25 @@ export async function readChapter(): Promise<Paragraph[]> {
       onopentag(name, attributes) {
         currentTagName = name;
       },
-      ontext(text) {
-        console.log({ currentTagName, content: text.substring(0, 10) });
-        if (tags.includes(currentTagName) /*  && text.trim() != "" */) {
+      ontext(content) {
+        //const content = text.replace("\n", " ");
+        if (tags.includes(currentTagName)) {
+          const tagName = currentTagName as TagName;
+          /* paragraphs.push({
+            content: text.trimStart(),
+            tagName: currentTagName as TagName,
+            includes: [],
+          }); */
           if (["span", "code"].includes(currentTagName)) {
             const prevTag = paragraphs.pop();
-            const content = prevTag.content + text;
-            paragraphs.push({ ...prevTag, content });
+            const include = { content, tagName } as Paragraph;
+            prevTag.includes.push(include);
+            paragraphs.push(prevTag);
           } else {
             paragraphs.push({
-              content: text,
-              tagName: currentTagName as TagName,
+              content: content.trimStart(),
+              tagName,
+              includes: [],
             });
           }
         }
