@@ -1,4 +1,4 @@
-export type TagName = "h1" | "h2" | "h3" | "p";
+export type TagName = "h1" | "h2" | "h3" | "p" | "code" | "span" | "li";
 
 export type Paragraph = {
   tagName: TagName;

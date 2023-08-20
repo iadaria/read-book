@@ -50,7 +50,6 @@ export async function readChapter(): Promise<Paragraph[]> {
         currentTagName = name;
       },
       ontext(content) {
-        //const content = text.replace("\n", " ");
         if (tags.includes(currentTagName)) {
           const tagName = currentTagName as TagName;
           /* paragraphs.push({
@@ -88,6 +87,7 @@ export async function readChapter(): Promise<Paragraph[]> {
     console.log("error=>", error);
   } finally {
     //console.log("Returning paragraphs", paragraphs.splice(0, 10));
-    return paragraphs.filter((p) => p.content.trim());
+    //return paragraphs.filter((p) => p.content.trim());
+    return paragraphs;
   }
 }
