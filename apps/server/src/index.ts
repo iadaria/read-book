@@ -5,6 +5,9 @@ import express from "express";
 import cors from "cors";
 import bookRoutes from "@/routes/bookRoutes";
 import translateRoutes from "./routes/translateRoutes";
+import { readChapter } from "./helpers/epubReader";
+
+readChapter();
 
 const app = express();
 
@@ -22,10 +25,4 @@ app.use("/api/v1/translate", translateRoutes);
 
 const PORT = process.env.PORT || 3001;
 
-app.listen(PORT, () => {
-  // console.log(
-  //   `${chalk.green.bold("✔")} 👍 Server running in ${chalk.yellow.bold(
-  //     process.env.NODE_ENV
-  //   )} mode on port ${chalk.blue.bold(PORT)}`
-  // );
-});
+app.listen(PORT, () => {});

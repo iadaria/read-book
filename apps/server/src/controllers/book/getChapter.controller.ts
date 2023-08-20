@@ -9,8 +9,8 @@ const getChapter = asyncHandler(async (req, res) => {
    * throw new Error("An email address is required")
    * }
    */
-  const chapter = await readChapter();
-  res.json({ chapter });
+  const paragraphs = await readChapter();
+  res.json({ chapter: paragraphs });
 });
 
 export default getChapter;
