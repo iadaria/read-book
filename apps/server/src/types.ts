@@ -4,3 +4,10 @@ export type Content = {
   mediaType: "application/xhtml+xml";
   order: number;
 };
+
+export type Title = {
+  id: string;
+  title: string;
+  order?: number;
+  level?: number;
+};

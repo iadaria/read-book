@@ -14,3 +14,10 @@ export type Paragraph = {
   content: string;
   includes: Paragraph[];
 };
+
+export type Title = {
+  id: string;
+  title: string;
+  order?: number;
+  level?: number;
+};

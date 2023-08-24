@@ -5,9 +5,9 @@ import express from "express";
 import cors from "cors";
 import bookRoutes from "@/routes/bookRoutes";
 import translateRoutes from "./routes/translateRoutes";
-import { readChapter } from "./helpers/epubReader";
+/* import { readChapter } from "./services/epub";
 
-readChapter();
+readChapter("chapter0"); */
 
 const app = express();
 
