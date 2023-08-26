@@ -2,7 +2,7 @@ import EPub from "epub2";
 import * as parser2 from "htmlparser2";
 import { Paragraph, TagName } from "@/types/chapter";
 import { TocElement } from "epub2/lib/epub/const";
-import { CURRENT_DIR, FILE_NAME } from "./epub.constants";
+import { CURRENT_DIR, FILE_NAME } from "../../constants/epub.constants";
 
 interface ITocElement extends TocElement {
   properties?: "nav" | string;

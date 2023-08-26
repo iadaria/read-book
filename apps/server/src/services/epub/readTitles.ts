@@ -1,6 +1,6 @@
 import EPub from "epub2";
 import { TocElement } from "epub2/lib/epub/const";
-import { CURRENT_DIR, FILE_NAME } from "./epub.constants";
+import { CURRENT_DIR, FILE_NAME } from "../../constants/epub.constants";
 import { Title } from "@/types";
 
 interface ITocElement extends TocElement {
@@ -15,14 +15,26 @@ export async function readTitles(): Promise<Title[]> {
       ""
     );
 
-    const allChapters = epub.flow;
+    const allChaptersTitles = epub.toc;
+    const allChaptersIds = epub.flow;
 
-    //console.log({ allChapters });
+    console.log({ allChaptersIds });
+    console.log({ allChaptersTitles });
 
-    const chapters = allChapters.filter(
-      (chapter: ITocElement) => chapter?.properties !== "nav"
-    );
-    console.log({ chapters });
+    const chapters = allChaptersIds
+      .map((id) => {
+        const chapter = allChaptersTitles.find((ch) =>
+          ch.href.includes(id.href)
+        );
+        return { ...id, title: chapter.title, order: chapter.order };
+      })
+      .sort((ch1, ch2) => (ch1.order <= ch2.order ? -1 : 1));
+
+    console.log("***", { chapters });
+
+    /*
+    const chapters = allChapters
+      .filter((chapter: ITocElement) => chapter?.properties !== "nav"); */
 
     return chapters as Title[];
   } catch (error) {
